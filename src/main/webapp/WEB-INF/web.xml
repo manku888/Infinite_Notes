@@ -1,0 +1,67 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>SaveNoteServlet</servlet-name>
+  	<display-name>SaveNoteServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.saervlets.SaveNoteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteServlet</servlet-name>
+  	<display-name>DeleteServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.saervlets.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<display-name>UpdateServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.saervlets.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UppdateServlet</servlet-name>
+  	<display-name>UppdateServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.saervlets.UppdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<display-name>SearchServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.saervlets.SearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SearchServlett</servlet-name>
+  	<display-name>SearchServlett</display-name>
+  	<description></description>
+  	<servlet-class>com.saervlets.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SaveNoteServlet</servlet-name>
+  	<url-pattern>/SaveNoteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteServlet</servlet-name>
+  	<url-pattern>/DeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<url-pattern>/UpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UppdateServlet</servlet-name>
+  	<url-pattern>/UppdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchServlett</servlet-name>
+  	<url-pattern>/SearchServlett</url-pattern>
+  </servlet-mapping>
+</web-app>
