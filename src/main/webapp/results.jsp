@@ -3,8 +3,8 @@
 <%@page import="com.helper.FactoryProvider"%>
 <%@page import="org.hibernate.query.Query"%>
 <%@page import="java.util.List"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 
-<%-- <%imprt %> --%>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>All Notes:Infinite-Note</title>
+<title>Search Notes:Infinite-Note</title>
 <%@include file="all_js_css.jsp"%>
 </head>
 <body>
@@ -23,9 +23,9 @@
 		<%@include file="navebar.jsp"%>
 		<br>
 		<h1 class="text-Uppercase">Search Results :</h1>
-		<div calss="row">
+		<div class="row">
 
-			<div calass="col-12">
+			<div class="col-12">
 
 
 				<%
@@ -34,8 +34,15 @@
 				Query q = s.createQuery("FROM Note WHERE title LIKE :searchTerm OR content LIKE :searchTerm");
 				q.setParameter("searchTerm", "%" + searchTerm + "%");
 				List<Note> list = q.list();
+				
+				if(list!=null && !list.isEmpty()){
+					
+					
 				for (Note note : list)
 				{
+					// Format the date
+                                        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE/ MMMM dd/ yyyy /HH:mm:ss a");
+                                        String formattedDate = dateFormat.format(note.getAddedDate());
 				%>
 				<div class="card mt-3">
 					<img class="card-img-top m-4 mx-auto" style="max-width:100px;" src="img/notes.png" alt="Card image cap">
@@ -44,9 +51,9 @@
 						<p class="card-text">
 						<%=note.getContent() %>
 						</p>
-						<p><b class="text-info"><%=note.getAddedDate() %></b></p>
-						<div class="container text-center mt-2">
-						<a href="DeleteServlet?note_id=<%= note.getId()%>" class="btn btn-danger">Delete</a>
+						 <p><b class="text-info">Date: <%= formattedDate %></b></p>
+						<div class="container text-center mt-2  btn">
+						<a href="DeleteServlet?note_id=<%= note.getId()%>" class="btn btn-danger" >Delete</a>
 						<a href="edit.jsp?note_id=<%= note.getId()%>" class="btn btn-primary">Update</a>
 						</div>
 					</div>
@@ -55,8 +62,15 @@
 				
 				<%
 				}
+				}
+			     else {
+			    %>
+			    <h2>No results found</h2>
+			    <% 
+			     }
 				s.close();
 				%>
+				
 
 			</div>
 		</div>
